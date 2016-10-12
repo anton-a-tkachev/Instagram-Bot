@@ -8,8 +8,8 @@ var viewsLimit = 3000;		// limit for the number of views
 var enableLikes = true;		// toggle liking activity (true/false)
 var enableFollows = true;	// toggle following activity (true/false)
 
-var likeProb = 90; 			// Probability to like a post, %
-var followProb = 90;		// Probability to follow an account, %
+var likeProb = 90; 		// probability to like a post, %
+var followProb = 90;		// probability to follow an account, %
 //----------------------------------------------------------------------
 
 // SCRIPT BODY ---------------------------------------------------------
