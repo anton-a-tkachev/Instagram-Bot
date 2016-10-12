@@ -1,4 +1,4 @@
-# Instagram-Browser-Bot
+# Smart-Browser-Bot-for-Instagram
 Instagram browser robot for liking and following simulating human behavior
 
 # How to use
