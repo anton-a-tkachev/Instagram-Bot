@@ -30,13 +30,13 @@ function actAsInstaHuman(){
 	
 	// Schedule liking
 	if(likeElement != null && enableLikes && Math.random()*100 < likeProb){
-		whenToLike = 2000 + Math.random()*8000;
+		whenToLike = 2000 + Math.random()*2000;
 		setTimeout(function(){likeElement.click();likesCount++;console.log('Liked ' + likesCount);},whenToLike);
 	}
 	
 	// Schedule following
 	if(followButton.innerHTML == "Follow" && enableFollows && Math.random()*100 < followProb){
-		whenToFollow = whenToLike + 2000 + Math.random()*8000;
+		whenToFollow = whenToLike + 2000 + Math.random()*2000;
 		setTimeout(function(){followButton.click();followsCount++;console.log('Followed ' + followsCount);},whenToFollow);
 	}
 	
