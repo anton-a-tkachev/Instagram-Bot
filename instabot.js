@@ -12,7 +12,7 @@ var likeProb = 100; 		// probability to like a post, in (%)
 var followProb = 100;		// probability to follow an account, in (%)
 
 var delayFixed = 2000;		// fixed time delay between actions, in (ms)
-var delayRandom = 2000;		// limit for random time delay added to the fixed one, in (ms)
+var delayRandom = 1000;		// limit for random time delay added to the fixed one, in (ms)
 //----------------------------------------------------------------------
 
 // SCRIPT BODY ---------------------------------------------------------
@@ -40,6 +40,7 @@ function actAsInstaHuman(){
 	// Schedule following
 	if(followButton.innerHTML == "Follow" && enableFollows && Math.random()*100 < followProb){
 		whenToFollow = whenToLike + delayFixed + Math.random()*delayRandom;
+		console.log('Follow ' + whenToFollow);
 		setTimeout(function(){followButton.click();followsCount++;console.log('Followed ' + followsCount);},whenToFollow);
 	}
 	
