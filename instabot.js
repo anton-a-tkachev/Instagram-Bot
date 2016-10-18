@@ -44,7 +44,6 @@ function actAsInstaHuman(){
 	// Schedule following
 	if(followButton.innerHTML == "Follow" && enableFollows && Math.random()*100 < followProb){
 		whenToFollow = whenToLike + delayFixed + Math.random()*delayRandom;
-		console.log('Follow ' + whenToFollow);
 		setTimeout(function(){followButton.click();followsCount++;console.log('Followed ' + followsCount);},whenToFollow);
 	}
 	
