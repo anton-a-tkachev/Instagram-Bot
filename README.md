@@ -2,7 +2,7 @@
 Instagram browser bot for liking and following simulating human behavior
 
 # How to use
-1) Log in your instagram account
+1) Log in to your instagram account
 
 2) Do hashtag/location search
 
