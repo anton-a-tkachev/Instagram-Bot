@@ -10,7 +10,7 @@ Instagram browser bot for liking and following simulating human behavior
 
 4) Invoke your browser javascript console ("Ctrl+Shift+J" by default in Google Chrome)
 
-5) Copy and paste the script code from instabot.js into the console
+5) Copy and paste the script code from file "instabot.js" into the console
 
 6) Set up the parameters (views, likes, follows limits, etc. Must comply with Instagram limits policies)
 
