@@ -8,8 +8,11 @@ var viewsLimit = 3000;		// limit for the number of views
 var enableLikes = true;		// toggle liking activity (true/false)
 var enableFollows = true;	// toggle following activity (true/false)
 
-var likeProb = 100; 		// probability to like a post, %
-var followProb = 100;		// probability to follow an account, %
+var likeProb = 100; 		// probability to like a post, in (%)
+var followProb = 100;		// probability to follow an account, in (%)
+
+var delayFixed = 2000;		// fixed time delay between actions, in (ms)
+var delayRandom = 2000;		// limit for random time delay added to the fixed one, in (ms)
 //----------------------------------------------------------------------
 
 // SCRIPT BODY ---------------------------------------------------------
@@ -30,27 +33,27 @@ function actAsInstaHuman(){
 	
 	// Schedule liking
 	if(likeElement != null && enableLikes && Math.random()*100 < likeProb){
-		whenToLike = 2000 + Math.random()*2000;
+		whenToLike = delayFixed + Math.random()*delayRandom;
 		setTimeout(function(){likeElement.click();likesCount++;console.log('Liked ' + likesCount);},whenToLike);
 	}
 	
 	// Schedule following
 	if(followButton.innerHTML == "Follow" && enableFollows && Math.random()*100 < followProb){
-		whenToFollow = whenToLike + 2000 + Math.random()*2000;
+		whenToFollow = whenToLike + delayFixed + Math.random()*delayRandom;
 		setTimeout(function(){followButton.click();followsCount++;console.log('Followed ' + followsCount);},whenToFollow);
 	}
 	
 	// Schedule clicking next
 	if(whenToFollow > whenToLike){
-		whenToClickNext = whenToFollow + 2000 + Math.random()*2000;
+		whenToClickNext = whenToFollow + delayFixed + Math.random()*delayRandom;
 	}
 	else{
-		whenToClickNext = whenToLike   + 2000 + Math.random()*2000;
+		whenToClickNext = whenToLike   + delayFixed + Math.random()*delayRandom;
 	}
 	setTimeout(function(){nextArrow.click();viewsCount++;console.log('Viewed ' + viewsCount);},whenToClickNext);
 	
 	// Schedule next run
-	whenToCheckCondition = whenToClickNext + 2000 + Math.random()*2000;
+	whenToCheckCondition = whenToClickNext + delayFixed + Math.random()*delayRandom;
 	whenToInvokeAgain = whenToCheckCondition + 100;
 	setTimeout(function(){
 		if(likesCount < likesLimit && followsCount < followsLimit && viewsCount < viewsLimit){
