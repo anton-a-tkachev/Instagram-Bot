@@ -10,6 +10,7 @@ var viewsLimit = 3000;		// limit for the number of views
 var enableLikes = true;		// toggle liking activity (true/false)
 var enableFollows = true;	// toggle following activity (true/false)
 
+
 // Human-like behaviour module
 var likeProb = 100; 		// probability to like a post, in (%)
 var followProb = 100;		// probability to follow an account, in (%)
@@ -25,10 +26,13 @@ var followsCount = 0;
 var viewsCount = 1;
 
 function actAsInstaHuman(){
+
 	var likeElement  = document.querySelector('.coreSpriteHeartOpen');
 	var nextArrow    = document.querySelector('.coreSpriteRightPaginationArrow');
 	var followButton = document.getElementsByTagName("BUTTON")[0];
-	
+	var accountName = document.querySelector('div[role=dialog] header div a').textContent;
+	var blacklistAccounts = [];
+
 	var whenToLike = 0;
 	var whenToFollow = 0;
 	var whenToClickNext = 0;
@@ -36,13 +40,13 @@ function actAsInstaHuman(){
 	var whenToInvokeAgain = 0;
 	
 	// Schedule liking
-	if(likeElement != null && enableLikes && Math.random()*100 < likeProb){
+	if(likeElement != null && enableLikes && Math.random()*100 < likeProb && blacklistAccounts.indexOf(accountName) < 0){
 		whenToLike = delayFixed + Math.random()*delayRandom;
 		setTimeout(function(){likeElement.click();likesCount++;console.log('Liked ' + likesCount);},whenToLike);
 	}
 	
 	// Schedule following
-	if(followButton.innerHTML == "Follow" && enableFollows && Math.random()*100 < followProb){
+	if(followButton.innerHTML == "Follow" && enableFollows && Math.random()*100 < followProb && blacklistAccounts.indexOf(accountName) < 0){
 		whenToFollow = whenToLike + delayFixed + Math.random()*delayRandom;
 		setTimeout(function(){followButton.click();followsCount++;console.log('Followed ' + followsCount);},whenToFollow);
 	}
