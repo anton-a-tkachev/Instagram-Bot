@@ -1,5 +1,3 @@
-// Copyright Anton Tkachev 2016
-
 // SETTINGS ------------------------------------------------------------
 // Instagram limit policies module
 var likesLimit = 1000;		// limit for the number of likes
@@ -17,7 +15,7 @@ var followProb = 100;		// probability to follow an account, in (%)
 
 // Timing
 var delayFixed = 2000;		// fixed time delay between actions, in (ms)
-var delayRandom = 1000;		// maximum for additional random time delay, in (ms)
+var delayRandom = 1000;		// cap for additional random time delay, in (ms)
 //----------------------------------------------------------------------
 
 // SCRIPT BODY ---------------------------------------------------------
