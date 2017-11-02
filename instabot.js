@@ -8,7 +8,6 @@ var viewsLimit = 3000;		// limit for the number of views
 var enableLikes = true;		// toggle liking activity (true/false)
 var enableFollows = true;	// toggle following activity (true/false)
 
-
 // Human-like behaviour module
 var likeProb = 100; 		// probability to like a post, in (%)
 var followProb = 100;		// probability to follow an account, in (%)
